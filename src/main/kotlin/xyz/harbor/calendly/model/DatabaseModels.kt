@@ -5,12 +5,12 @@ import org.springframework.data.relational.core.mapping.Table
 import java.time.Instant
 
 abstract class BaseEntity(
-    val createdAt: Instant = Instant.now(),
-    val updatedAt: Instant = Instant.now(),
-    val source: String = ""
+    var createdAt: Instant = Instant.now(),
+    var updatedAt: Instant = Instant.now(),
+    var source: String = ""
 )
 
-@Table("user")
+@Table("\"user\"")
 data class User(
     @Id
     val id: Long = 0,
@@ -30,5 +30,16 @@ data class UserAvailability(
     val date: Long,
     val startTime: Long, // epoch
     val endTime: Long, // epoch
-    val state: AvailabilityState = AvailabilityState.UNAVAILABLE
+    val status: AvailabilityState = AvailabilityState.AVAILABLE
+)
+
+data class OverlappingUserAvailability(
+    val userId1: String,
+    val availabilityDate1: Long,
+    val startTime1: Long,
+    val endTime1: Long,
+    val userId2: String,
+    val availabilityDate2: Long,
+    val startTime2: Long,
+    val endTime2: Long
 )
