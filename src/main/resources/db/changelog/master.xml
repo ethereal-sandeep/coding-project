@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Create user table -->
+    <changeSet id="create-user-table-001" author="sandeep">
+        <createTable tableName="user">
+            <column name="id" type="SERIAL" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time_zone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Create user_availability table -->
+    <changeSet id="create-user-availability-table-002" author="sandeep">
+        <createTable tableName="user_availability">
+            <column name="id" type="SERIAL" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_time" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Add indexes -->
+    <changeSet id="add-indexes-003" author="sandeep">
+        <createIndex tableName="user" indexName="idx_user_userid">
+            <column name="user_id"/>
+        </createIndex>
+        <createIndex tableName="user_availability" indexName="idx_user_availability_userid">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+
+<!--    &lt;!&ndash; Add foreign key &ndash;&gt;-->
+<!--    <changeSet id="add-foreign-key-004" author="sandeep">-->
+<!--        <addForeignKeyConstraint constraintName="fk_user_availability_user"-->
+<!--                                 baseTableName="user_availability"-->
+<!--                                 baseColumnNames="user_id"-->
+<!--                                 referencedTableName="user"-->
+<!--                                 referencedColumnNames="user_id"/>-->
+<!--    </changeSet>-->
+
+</databaseChangeLog>

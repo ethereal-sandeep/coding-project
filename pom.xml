@@ -16,12 +16,21 @@
 	<properties>
 		<java.version>17</java.version>
 		<kotlin.version>1.8.22</kotlin.version>
+		<versions.r2dbc-postgresql>1.0.2.RELEASE</versions.r2dbc-postgresql>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.postgresql/r2dbc-postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>r2dbc-postgresql</artifactId>
+			<version>${versions.r2dbc-postgresql}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
@@ -93,6 +102,19 @@
 						<version>${kotlin.version}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<driver>org.postgresql.Driver</driver>
+					<url>jdbc:postgresql://localhost:5432/postgres</url>
+					<username>postgres</username>
+					<password>admin</password>
+					<changeLogFile>src/main/resources/db/changelog/master.xml</changeLogFile>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
