@@ -79,3 +79,11 @@ EndTime: 1693999200 (Sep 3, 2023, 14:00:00 UTC)
 *** The overlapping time slot is from 12:00:00 to 13:00:00 UTC on Sep 3, 2023. ***
 
 ```
+
+Deploy to GCP Cloud Run
+=======================
+```shell
+gcloud run deploy SERVICE_NAME \
+  --set-env-vars DB_HOST="your-db-host",DB_USER="your-db-user",DB_PASS="your-db-password"
+```
+
