@@ -13,8 +13,8 @@ interface UserAvailabilityRepository: ReactiveCrudRepository<UserAvailability, S
 
     @Query("""
     SELECT 
-        t1.user_id AS user_id1, t1.date AS date1, t1.start_time AS start_time1, t1.end_time AS end_time1, 
-        t2.user_id AS user_id2, t2.date AS date2, t2.start_time AS start_time2, t2.end_time AS end_time2
+        t1.user_id AS user_id1, t1.date AS availability_date1, t1.start_time AS start_time1, t1.end_time AS end_time1, 
+        t2.user_id AS user_id2, t2.date AS availability_date2, t2.start_time AS start_time2, t2.end_time AS end_time2
     FROM 
         user_availability AS t1
     JOIN 
