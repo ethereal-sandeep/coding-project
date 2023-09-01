@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "02035991-da71-4c53-9e1c-22c873641764",
+		"name": "Calendly API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27397114"
+	},
+	"item": [
+		{
+			"name": "User APIs",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test2\",\n    \"email\": \"test2@test.com\",\n    \"timeZone\": \"IST\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/{{userId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Availability APIs",
+			"item": [
+				{
+					"name": "Create Availability",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"date\": 1234567890,\n        \"startTime\": 1234567900,\n        \"endTime\": 1234568000\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user-availability/create/{{userId}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user-availability",
+								"create",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Availability",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user-availability/view/KYIRICDLC2M329UOSBF7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user-availability",
+								"view",
+								"KYIRICDLC2M329UOSBF7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Overlapping Availabilities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user-availability/overlap/{{userId1}}/{{userId2}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user-availability",
+								"overlap",
+								"{{userId1}}",
+								"{{userId2}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:8080"
+		}
+	]
+}
