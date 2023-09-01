@@ -30,5 +30,3 @@ CREATE INDEX "idx_user_availability_userid" ON "user_availability"("user_id");
 -- ALTER TABLE "user_availability"
 -- ADD CONSTRAINT "fk_user_availability_user"
 -- FOREIGN KEY ("user_id") REFERENCES "user"("user_id");
-
-truncate table "user";

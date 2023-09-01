@@ -83,7 +83,6 @@ EndTime: 1693999200 (Sep 3, 2023, 14:00:00 UTC)
 Deploy to GCP Cloud Run
 =======================
 ```shell
-gcloud run deploy SERVICE_NAME \
-  --set-env-vars DB_HOST="your-db-host",DB_USER="your-db-user",DB_PASS="your-db-password"
+gcloud run deploy --add-cloudsql-instances harbor-xyz:asia-south1:harbor-xyz --set-env-vars SPRING_R2DBC_URL=r2dbc:postgresql://35.200.237.83:5432/postgres,SPRING_R2DBC_USERNAME=postgres,SPRING_R2DBC_PASSWORD=<YOUR_PASS>,SERVICE_PORT=8080
 ```
 
