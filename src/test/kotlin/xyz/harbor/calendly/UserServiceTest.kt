@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test
 import reactor.core.publisher.Mono
 import xyz.harbor.calendly.core.db.UserRepository
 import xyz.harbor.calendly.model.User
-import xyz.harbor.calendly.service.UserService
+import xyz.harbor.calendly.service.impl.UserService
 
 class UserServiceTest {
 

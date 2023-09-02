@@ -4,10 +4,9 @@ import kotlinx.coroutines.reactor.awaitSingle
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import xyz.harbor.calendly.dto.UserAvailabilityRequest
-import xyz.harbor.calendly.model.AvailabilityState
 import xyz.harbor.calendly.model.UserAvailability
-import xyz.harbor.calendly.service.UserAvailabilityService
-import xyz.harbor.calendly.service.UserService
+import xyz.harbor.calendly.service.impl.UserAvailabilityService
+import xyz.harbor.calendly.service.impl.UserService
 
 /**
  * [UserAvailabilityController] is responsible for handling requests related to [UserAvailability]s.

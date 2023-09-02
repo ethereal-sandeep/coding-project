@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import xyz.harbor.calendly.dto.CreateUserRequest
 import xyz.harbor.calendly.model.User
-import xyz.harbor.calendly.service.UserService
+import xyz.harbor.calendly.service.impl.UserService
 import xyz.harbor.calendly.util.Utils
 
 
